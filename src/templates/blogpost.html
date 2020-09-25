@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} {{blog.title|slice:20}} {% endblock title %}
+{% block body %}
+{% comment %} Title {% endcomment %}
+<h1 class="mb-5"><strong>{{blog.title}}</strong></h1>
+{% comment %} Author {% endcomment %}
+<p class="lead"><h5><em>by </em>{{blog.author}}</h5></p>
+<hr>
+{% comment %} Date/Time {% endcomment %}
+<p>{{blog.time|date:"d. M Y, G:i"}}</p>
+<hr>
+{{ blog.content|linebreaks }}
+{% comment %} Post Content {% endcomment %}
+{% comment %} Comments Form {% endcomment %}
+<div class="card my-5">
+    <h5 class="card-header">Leave a Comment:</h5>
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% comment %} Single Comment {% endcomment %}
+<div class="media mb-4">
+    <div class="media-body">
+        <h5 class="mt-0">Commenter Name</h5>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
+        vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
+        lacinia congue felis in faucibus.
+    </div>
+</div>
+{% endblock body %}
